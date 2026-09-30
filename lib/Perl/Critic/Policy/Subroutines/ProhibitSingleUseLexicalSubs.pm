@@ -61,10 +61,11 @@ parses it.  A use inside a string, such as C<"@{[ helper() ]}">, is not
 counted, so a sub used there and in one other place is reported.
 
 If the block declares the same name again, the policy cannot tell which
-declaration a use refers to, and it reports nothing for that name.
+declaration a use refers to, and it reports nothing for that name.  That said,
+this can only happen without strictures enabled so you have bigger problems.
 
 A sub passed as a callback, such as C<< find({ wanted => $wanted }, $dir) >>,
-is inlined as an anonymous sub at that place.
+should be inlined as an anonymous sub.
 
 =cut
 

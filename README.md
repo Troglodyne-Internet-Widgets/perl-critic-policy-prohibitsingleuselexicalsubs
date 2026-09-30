@@ -58,10 +58,11 @@ parses it.  A use inside a string, such as `"@{[ helper() ]}"`, is not
 counted, so a sub used there and in one other place is reported.
 
 If the block declares the same name again, the policy cannot tell which
-declaration a use refers to, and it reports nothing for that name.
+declaration a use refers to, and it reports nothing for that name.  That said,
+this can only happen without strictures enabled so you have bigger problems.
 
 A sub passed as a callback, such as `find({ wanted => $wanted }, $dir)`,
-is inlined as an anonymous sub at that place.
+should be inlined as an anonymous sub.
 
 ## METHODS
 
@@ -74,6 +75,15 @@ is inlined as an anonymous sub at that place.
 ### applies\_to
 
 ### violates
+
+# BUGS
+
+Please report any bugs or feature requests on the bugtracker website
+[https://github.com/teodesian/perl-critic-policy-prohibitsingleuselexicalsubs/issues](https://github.com/teodesian/perl-critic-policy-prohibitsingleuselexicalsubs/issues)
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
 
 # AUTHORS
 
